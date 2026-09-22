@@ -5,19 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Book Master — your ultimate destination for fantasy books. Browse epic sagas, enchanting tales, and magical worlds.">
     <title>Book Master | Online Bookstore</title>
-
     <style>
         * {
             box-sizing: border-box;
         }
-
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
             background: #f0f2f5;
             color: #1a1d23;
         }
-
         .wrap {
             max-width: 1150px;
             margin: 28px auto;
@@ -25,7 +22,6 @@
             border: 1px solid #dde1e8;
             box-shadow: 0 4px 24px rgba(30, 35, 48, 0.08);
         }
-
         .top {
             display: grid;
             grid-template-columns: 140px 1fr;
@@ -35,7 +31,6 @@
             align-items: center;
             border-bottom: 3px solid #b8963e;
         }
-
         .logo {
             font-weight: 800;
             font-size: 18px;
@@ -46,7 +41,6 @@
             border-right: 1px solid rgba(184, 150, 62, 0.3);
             padding: 10px;
         }
-
         .brand {
             text-align: center;
             font-size: 28px;
@@ -54,7 +48,6 @@
             letter-spacing: 1px;
             color: #f0f2f5;
         }
-
         .brand span {
             display: block;
             font-size: 12px;
@@ -64,13 +57,11 @@
             margin-top: 5px;
             text-transform: uppercase;
         }
-
         .nav {
             display: flex;
             background: #f7f8fa;
             border-bottom: 1px solid #dde1e8;
         }
-
         .nav a {
             flex: 1;
             text-align: center;
@@ -84,28 +75,23 @@
             border-right: 1px solid #dde1e8;
             transition: background 0.2s ease, color 0.2s ease;
         }
-
         .nav a:last-child {
             border-right: none;
         }
-
         .nav a:hover {
             background: #eaecf0;
             color: #b8963e;
         }
-
         .body {
             display: grid;
             grid-template-columns: 180px 1fr;
             min-height: 480px;
         }
-
         .side {
             padding: 20px 14px;
             background: #f4f5f7;
             border-right: 1px solid #dde1e8;
         }
-
         .side h4 {
             margin: 0 0 12px;
             font-size: 10px;
@@ -114,7 +100,6 @@
             color: #8a919e;
             font-weight: 700;
         }
-
         .side a {
             display: block;
             padding: 9px 10px;
@@ -124,63 +109,53 @@
             font-size: 13px;
             transition: background 0.2s ease, color 0.2s ease;
         }
-
         .side a:hover {
             background: #eaecf0;
             color: #b8963e;
         }
-
         .content {
             padding: 32px 36px;
             background: #ffffff;
         }
-
         .content h1 {
             margin: 0 0 6px;
             font-size: 24px;
             color: #1e2330;
         }
-
         .content h2 {
             margin: 0 0 10px;
             font-size: 17px;
             color: #1e2330;
         }
-
         .content h3 {
             margin: 0 0 10px;
             font-size: 15px;
             color: #1e2330;
         }
-
         .muted {
             color: #5c6370;
             font-size: 14px;
             line-height: 1.75;
             margin: 0 0 24px;
         }
-
         .cards {
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
             gap: 16px;
             margin-top: 4px;
         }
-
         .card {
             border: 1px solid #dde1e8;
             border-radius: 8px;
             padding: 20px;
             background: #f7f8fa;
         }
-
         .card p {
             font-size: 13px;
             line-height: 1.75;
             color: #5c6370;
             margin: 0 0 16px;
         }
-
         .card ul {
             padding-left: 18px;
             margin: 0;
@@ -188,7 +163,6 @@
             line-height: 2.1;
             color: #3a3f4d;
         }
-
         .btn {
             display: inline-block;
             background: #b8963e;
@@ -203,11 +177,9 @@
             letter-spacing: 0.4px;
             transition: background 0.2s ease;
         }
-
         .btn:hover {
             background: #9a7c30;
         }
-
         .footer {
             text-align: center;
             padding: 14px;
@@ -217,34 +189,27 @@
             background: #f4f5f7;
             letter-spacing: 0.3px;
         }
-
         @media (max-width: 700px) {
             .wrap {
                 margin: 0;
                 border: none;
             }
-
             .top {
                 grid-template-columns: 90px 1fr;
             }
-
             .brand {
                 font-size: 20px;
             }
-
             .nav {
                 flex-wrap: wrap;
             }
-
             .nav a {
                 min-width: 33%;
                 border-bottom: 1px solid #dde1e8;
             }
-
             .body {
                 grid-template-columns: 1fr;
             }
-
             .side {
                 display: flex;
                 flex-wrap: wrap;
@@ -253,15 +218,12 @@
                 border-bottom: 1px solid #dde1e8;
                 padding: 12px;
             }
-
             .side h4 {
                 width: 100%;
             }
-
             .content {
                 padding: 20px 16px;
             }
-
             .cards {
                 grid-template-columns: 1fr;
             }
@@ -269,9 +231,7 @@
     </style>
 </head>
 <body>
-
     <div class="wrap">
-
         <header class="top">
             <div class="logo">BOOK<br>MASTER</div>
             <div class="brand">
@@ -279,7 +239,6 @@
                 <span>Online Bookstore</span>
             </div>
         </header>
-
         <nav class="nav" aria-label="Main navigation">
             <a href="#">Home</a>
             <a href="#">Login</a>
@@ -287,9 +246,7 @@
             <a href="#">Catalogue</a>
             <a href="#">Cart</a>
         </nav>
-
         <div class="body">
-
             <aside class="side">
                 <h4>Quick Links</h4>
                 <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Best Fantasy Books</a>
@@ -298,19 +255,13 @@
                 <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Series</a>
                 <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Reviews</a>
             </aside>
-
             <section class="content">
                 <h1>Welcome to Book Master</h1>
-                <p class="muted">
-                    Book Master is your ultimate destination for all things fantasy! Explore our extensive collection of fantasy books, from epic sagas to enchanting tales. Immerse yourself in magical worlds, meet unforgettable characters, and embark on thrilling adventures. Whether you're a seasoned fantasy enthusiast or just starting your journey, Book Master has something for everyone.
-                </p>
-
+                <p class="muted">Book Master is your ultimate destination for all things fantasy! Explore our extensive collection of fantasy books, from epic sagas to enchanting tales. Immerse yourself in magical worlds, meet unforgettable characters, and embark on thrilling adventures. Whether you're a seasoned fantasy enthusiast or just starting your journey, Book Master has something for everyone.</p>
                 <div class="cards">
                     <div class="card">
                         <h2>Books: A Door to Another World</h2>
-                        <p>
-                            Discover new releases, timeless classics, and hidden gems that will transport you to realms beyond imagination. Join our community of passionate readers and let your imagination soar!
-                        </p>
+                        <p>Discover new releases, timeless classics, and hidden gems that will transport you to realms beyond imagination. Join our community of passionate readers and let your imagination soar!</p>
                         <a href="#" class="btn">Browse Catalogue</a>
                     </div>
                     <div class="card">
@@ -324,14 +275,10 @@
                     </div>
                 </div>
             </section>
-
         </div>
-
         <footer class="footer">
             &copy; 2026 Book Master &mdash; Academic demonstration for Web Designing Workshop (BCS353)
         </footer>
-
     </div>
-
 </body>
 </html>
