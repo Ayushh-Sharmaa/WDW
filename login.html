@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book Master — Login to your account to access your bookstore dashboard.">
+    <title>Login | Book Master</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f0f2f5;
+            color: #1a1d23;
+        }
+        .wrap {
+            max-width: 1150px;
+            margin: 28px auto;
+            background: #ffffff;
+            border: 1px solid #dde1e8;
+            box-shadow: 0 4px 24px rgba(30, 35, 48, 0.08);
+        }
+        .top {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            background: #1e2330;
+            color: #f0f2f5;
+            min-height: 90px;
+            align-items: center;
+            border-bottom: 3px solid #b8963e;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 3px;
+            line-height: 1.4;
+            color: #b8963e;
+            border-right: 1px solid rgba(184, 150, 62, 0.3);
+            padding: 10px;
+        }
+        .brand {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #f0f2f5;
+        }
+        .brand span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: #b8963e;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+        .nav {
+            display: flex;
+            background: #f7f8fa;
+            border-bottom: 1px solid #dde1e8;
+        }
+        .nav a {
+            flex: 1;
+            text-align: center;
+            padding: 12px 8px;
+            text-decoration: none;
+            color: #3a3f4d;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            border-right: 1px solid #dde1e8;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .nav a:last-child {
+            border-right: none;
+        }
+        .nav a:hover {
+            background: #eaecf0;
+            color: #b8963e;
+        }
+        .nav a.active {
+            background: #eaecf0;
+            color: #b8963e;
+        }
+        .body {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            min-height: 480px;
+        }
+        .side {
+            padding: 20px 14px;
+            background: #f4f5f7;
+            border-right: 1px solid #dde1e8;
+        }
+        .side h4 {
+            margin: 0 0 12px;
+            font-size: 10px;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: #8a919e;
+            font-weight: 700;
+        }
+        .side a {
+            display: block;
+            padding: 9px 10px;
+            text-decoration: none;
+            color: #3a3f4d;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .side a:hover {
+            background: #eaecf0;
+            color: #b8963e;
+        }
+        .content {
+            padding: 32px 36px;
+            background: #ffffff;
+        }
+        .content h1 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            color: #1e2330;
+        }
+        .muted {
+            color: #5c6370;
+            font-size: 14px;
+            line-height: 1.75;
+            margin: 0 0 24px;
+        }
+        .login-box {
+            max-width: 420px;
+            border: 1px solid #dde1e8;
+            border-radius: 8px;
+            padding: 32px 28px;
+            background: #f7f8fa;
+        }
+        .field {
+            margin-bottom: 18px;
+        }
+        .field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e2330;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
+        }
+        .field input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #c4c9d4;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #1a1d23;
+            background: #ffffff;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+        .field input:focus {
+            border-color: #b8963e;
+        }
+        .btn-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .btn {
+            flex: 1;
+            display: inline-block;
+            text-align: center;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            letter-spacing: 0.4px;
+            border: none;
+            transition: background 0.2s ease;
+        }
+        .btn-submit {
+            background: #b8963e;
+            color: #ffffff;
+        }
+        .btn-submit:hover {
+            background: #9a7c30;
+        }
+        .btn-reset {
+            background: #e4e7ed;
+            color: #3a3f4d;
+        }
+        .btn-reset:hover {
+            background: #d0d4dc;
+        }
+        .footer {
+            text-align: center;
+            padding: 14px;
+            border-top: 1px solid #dde1e8;
+            color: #8a919e;
+            font-size: 12px;
+            background: #f4f5f7;
+            letter-spacing: 0.3px;
+        }
+        @media (max-width: 700px) {
+            .wrap { margin: 0; border: none; }
+            .top { grid-template-columns: 90px 1fr; }
+            .brand { font-size: 20px; }
+            .nav { flex-wrap: wrap; }
+            .nav a { min-width: 33%; border-bottom: 1px solid #dde1e8; }
+            .body { grid-template-columns: 1fr; }
+            .side { display: flex; flex-wrap: wrap; gap: 4px; border-right: none; border-bottom: 1px solid #dde1e8; padding: 12px; }
+            .side h4 { width: 100%; }
+            .content { padding: 20px 16px; }
+            .login-box { max-width: 100%; padding: 20px 16px; }
+            .btn-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <header class="top">
+            <div class="logo">BOOK<br>MASTER</div>
+            <div class="brand">
+                Book Master
+                <span>Online Bookstore</span>
+            </div>
+        </header>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="login.html" class="active">Login</a>
+            <a href="#">Registration</a>
+            <a href="#">Catalogue</a>
+            <a href="#">Cart</a>
+        </nav>
+        <div class="body">
+            <aside class="side">
+                <h4>Quick Links</h4>
+                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Best Fantasy Books</a>
+                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Top 100 Fantasy</a>
+                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Recommendations</a>
+                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Series</a>
+                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Reviews</a>
+            </aside>
+            <section class="content">
+                <h1>User Login</h1>
+                <p class="muted">Enter your credentials below to access your Book Master account.</p>
+                <div class="login-box">
+                    <form action="#" method="post">
+                        <div class="field">
+                            <label for="username">User Name</label>
+                            <input type="text" id="username" name="username" placeholder="Enter your username">
+                        </div>
+                        <div class="field">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter your password">
+                        </div>
+                        <div class="btn-row">
+                            <button type="submit" class="btn btn-submit">Submit</button>
+                            <button type="reset" class="btn btn-reset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            &copy; 2026 Book Master &mdash; Academic demonstration for Web Designing Workshop (BCS353)
+        </footer>
+    </div>
+</body>
+</html>
