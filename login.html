@@ -3,272 +3,536 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book Master — Login to your account to access your bookstore dashboard.">
     <title>Login | Book Master</title>
     <style>
         * {
             box-sizing: border-box;
-        }
-        body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f0f2f5;
-            color: #1a1d23;
+            padding: 0;
         }
-        .wrap {
-            max-width: 1150px;
-            margin: 28px auto;
-            background: #ffffff;
-            border: 1px solid #dde1e8;
-            box-shadow: 0 4px 24px rgba(30, 35, 48, 0.08);
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #FFFFE3;
+            color: #1e293b;
         }
-        .top {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            background: #1e2330;
-            color: #f0f2f5;
-            min-height: 90px;
-            align-items: center;
-            border-bottom: 3px solid #b8963e;
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        .logo {
-            font-weight: 800;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 3px;
-            line-height: 1.4;
-            color: #b8963e;
-            border-right: 1px solid rgba(184, 150, 62, 0.3);
-            padding: 10px;
-        }
-        .brand {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: #f0f2f5;
-        }
-        .brand span {
-            display: block;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: #b8963e;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-        .nav {
+
+        .header {
+            background-color: #1f3d34;
+            color: #FFFFE3;
+            padding: 16px 40px;
             display: flex;
-            background: #f7f8fa;
-            border-bottom: 1px solid #dde1e8;
+            justify-content: space-between;
+            align-items: center;
         }
-        .nav a {
-            flex: 1;
-            text-align: center;
-            padding: 12px 8px;
-            text-decoration: none;
-            color: #3a3f4d;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            border-right: 1px solid #dde1e8;
-            transition: background 0.2s ease, color 0.2s ease;
+
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
-        .nav a:last-child {
-            border-right: none;
+
+        .brand-icon {
+            font-size: 34px;
         }
-        .nav a:hover {
-            background: #eaecf0;
-            color: #b8963e;
-        }
-        .nav a.active {
-            background: #eaecf0;
-            color: #b8963e;
-        }
-        .body {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            min-height: 480px;
-        }
-        .side {
-            padding: 20px 14px;
-            background: #f4f5f7;
-            border-right: 1px solid #dde1e8;
-        }
-        .side h4 {
-            margin: 0 0 12px;
-            font-size: 10px;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: #8a919e;
+
+        .brand-name {
+            font-size: 28px;
             font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1;
         }
-        .side a {
-            display: block;
-            padding: 9px 10px;
-            text-decoration: none;
-            color: #3a3f4d;
-            border-radius: 6px;
+
+        .brand-tagline {
+            font-size: 11px;
+            font-style: italic;
+            color: #d8d8d8;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .nav-item {
             font-size: 13px;
-            transition: background 0.2s ease, color 0.2s ease;
+            font-weight: 600;
+            color: #FFFFE3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
         }
-        .side a:hover {
-            background: #eaecf0;
-            color: #b8963e;
+
+        .nav-item:hover,
+        .nav-item.active {
+            border-bottom-color: #FFFFE3;
         }
-        .content {
-            padding: 32px 36px;
+
+        .page-container {
+            max-width: 1260px;
+            margin: 24px auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 200px 1fr 230px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .sidebar-panel {
             background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 16px 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-        .content h1 {
-            margin: 0 0 6px;
-            font-size: 24px;
-            color: #1e2330;
+
+        .sidebar-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1f3d34;
+            padding-left: 8px;
+            font-family: Georgia, serif;
         }
-        .muted {
-            color: #5c6370;
-            font-size: 14px;
-            line-height: 1.75;
-            margin: 0 0 24px;
+
+        .branch-nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
+
+        .branch-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            border-radius: 4px;
+        }
+
+        .branch-link-btn:hover {
+            background-color: #dbe6db;
+            color: #1f3d34;
+        }
+
+        .quote-container {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 16px;
+            text-align: center;
+        }
+
+        .quote-icon {
+            font-size: 26px;
+            color: #1f3d34;
+            margin-bottom: 6px;
+        }
+
+        .quote-body {
+            font-size: 13px;
+            font-style: italic;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            font-family: Georgia, serif;
+        }
+
+        .quote-cite {
+            font-size: 11px;
+            color: #6D8196;
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .main-content-card {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 32px 36px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .page-heading {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 6px;
+            font-family: Georgia, serif;
+        }
+
+        .page-sub {
+            font-size: 13px;
+            color: #6D8196;
+            margin-bottom: 24px;
+        }
+
         .login-box {
-            max-width: 420px;
-            border: 1px solid #dde1e8;
-            border-radius: 8px;
-            padding: 32px 28px;
-            background: #f7f8fa;
+            max-width: 440px;
+            background: #fcfbf7;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 28px;
         }
+
         .field {
             margin-bottom: 18px;
         }
+
         .field label {
             display: block;
             font-size: 13px;
             font-weight: 700;
-            color: #1e2330;
+            color: #1f3d34;
             margin-bottom: 6px;
-            letter-spacing: 0.3px;
         }
+
         .field input {
             width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #c4c9d4;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #1a1d23;
-            background: #ffffff;
+            padding: 10px 14px;
+            font-size: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
             outline: none;
-            transition: border-color 0.2s ease;
+            background: #ffffff;
+            color: #1e293b;
         }
+
         .field input:focus {
-            border-color: #b8963e;
+            border-color: #1f3d34;
         }
+
         .btn-row {
             display: flex;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 10px;
+            margin-top: 22px;
         }
+
         .btn {
             flex: 1;
-            display: inline-block;
-            text-align: center;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 700;
+            padding: 11px;
             font-size: 13px;
-            cursor: pointer;
-            letter-spacing: 0.4px;
+            font-weight: 700;
+            border-radius: 4px;
             border: none;
-            transition: background 0.2s ease;
+            cursor: pointer;
+            text-align: center;
         }
+
         .btn-submit {
-            background: #b8963e;
+            background-color: #1f3d34;
             color: #ffffff;
         }
+
         .btn-submit:hover {
-            background: #9a7c30;
+            background-color: #2b5447;
         }
+
         .btn-reset {
-            background: #e4e7ed;
-            color: #3a3f4d;
+            background-color: #e2e8f0;
+            color: #334155;
         }
+
         .btn-reset:hover {
-            background: #d0d4dc;
+            background-color: #cbd5e1;
         }
-        .footer {
-            text-align: center;
-            padding: 14px;
-            border-top: 1px solid #dde1e8;
-            color: #8a919e;
+
+        .register-link {
+            margin-top: 18px;
             font-size: 12px;
-            background: #f4f5f7;
-            letter-spacing: 0.3px;
+            color: #6D8196;
+            text-align: center;
         }
-        @media (max-width: 700px) {
-            .wrap { margin: 0; border: none; }
-            .top { grid-template-columns: 90px 1fr; }
-            .brand { font-size: 20px; }
-            .nav { flex-wrap: wrap; }
-            .nav a { min-width: 33%; border-bottom: 1px solid #dde1e8; }
-            .body { grid-template-columns: 1fr; }
-            .side { display: flex; flex-wrap: wrap; gap: 4px; border-right: none; border-bottom: 1px solid #dde1e8; padding: 12px; }
-            .side h4 { width: 100%; }
-            .content { padding: 20px 16px; }
-            .login-box { max-width: 100%; padding: 20px 16px; }
-            .btn-row { flex-direction: column; }
+
+        .register-link a {
+            color: #1f3d34;
+            font-weight: 700;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .cart-box-card {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .cart-box-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: Georgia, serif;
+        }
+
+        .cart-items-count {
+            font-size: 13px;
+            color: #6D8196;
+            margin-bottom: 14px;
+        }
+
+        .btn-view-cart {
+            display: block;
+            background-color: #1f3d34;
+            color: #ffffff;
+            text-align: center;
+            padding: 9px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        .btn-view-cart:hover {
+            background-color: #2b5447;
+        }
+
+        .why-box-card {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .why-box-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 16px;
+            font-family: Georgia, serif;
+        }
+
+        .perk-items-col {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .perk-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .perk-ico {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .perk-main-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 2px;
+        }
+
+        .perk-sub-text {
+            font-size: 11px;
+            color: #6D8196;
+            line-height: 1.3;
+        }
+
+        .footer {
+            background-color: #1f3d34;
+            color: #d8d8d8;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .social-link-item {
+            color: #d8d8d8;
+            margin-left: 14px;
+            font-weight: 700;
+        }
+
+        .social-link-item:hover {
+            color: #FFFFE3;
+        }
+
+        @media (max-width: 1024px) {
+            .page-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 14px;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+            }
+            .login-box {
+                max-width: 100%;
+            }
+            .footer {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <header class="top">
-            <div class="logo">BOOK<br>MASTER</div>
-            <div class="brand">
-                Book Master
-                <span>Online Bookstore</span>
+
+    <header class="header">
+        <div class="brand-wrap">
+            <span class="brand-icon">📖</span>
+            <div>
+                <div class="brand-name">Book Master</div>
+                <div class="brand-tagline">Read More . Explore More . Grow More</div>
             </div>
-        </header>
-        <nav class="nav" aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="login.html" class="active">Login</a>
-            <a href="#">Registration</a>
-            <a href="#">Catalogue</a>
-            <a href="#">Cart</a>
-        </nav>
-        <div class="body">
-            <aside class="side">
-                <h4>Quick Links</h4>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Best Fantasy Books</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Top 100 Fantasy</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Recommendations</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Series</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Reviews</a>
-            </aside>
-            <section class="content">
-                <h1>User Login</h1>
-                <p class="muted">Enter your credentials below to access your Book Master account.</p>
-                <div class="login-box">
-                    <form action="#" method="post">
-                        <div class="field">
-                            <label for="username">User Name</label>
-                            <input type="text" id="username" name="username" placeholder="Enter your username">
-                        </div>
-                        <div class="field">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Enter your password">
-                        </div>
-                        <div class="btn-row">
-                            <button type="submit" class="btn btn-submit">Submit</button>
-                            <button type="reset" class="btn btn-reset">Reset</button>
-                        </div>
-                    </form>
-                </div>
-            </section>
         </div>
-        <footer class="footer">
-            &copy; 2026 Book Master &mdash; Academic demonstration for Web Designing Workshop (BCS353)
-        </footer>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item">🏠 Home</a>
+            <a href="login.html" class="nav-item active">👤 Login</a>
+            <a href="login.html#register" class="nav-item">📝 Registration</a>
+            <a href="index.html#catalogue" class="nav-item">📖 Catalogue</a>
+            <a href="index.html#cart" class="nav-item">🛒 Cart (0)</a>
+        </nav>
+    </header>
+
+    <div class="page-container">
+        
+        <aside class="sidebar-panel">
+            <div class="sidebar-title">Various Branches</div>
+            <ul class="branch-nav-list">
+                <li><a href="index.html" class="branch-link-btn"><span>🏠</span> Home</a></li>
+                <li><a href="index.html#cse" class="branch-link-btn"><span>💻</span> Computer Science</a></li>
+                <li><a href="index.html#ece" class="branch-link-btn"><span>📡</span> Electronics &amp; Comm</a></li>
+                <li><a href="index.html#eee" class="branch-link-btn"><span>⚡</span> Electrical Engg</a></li>
+                <li><a href="index.html#me" class="branch-link-btn"><span>⚙️</span> Mechanical Engg</a></li>
+                <li><a href="index.html#civil" class="branch-link-btn"><span>🏗️</span> Civil Engineering</a></li>
+                <li><a href="index.html#academic" class="branch-link-btn"><span>🎓</span> Academic &amp; Syllabi</a></li>
+            </ul>
+
+            <div class="quote-container">
+                <div class="quote-icon">📖</div>
+                <p class="quote-body">“A book is a dream that you hold in your hands.”</p>
+                <span class="quote-cite">— Neil Gaiman</span>
+            </div>
+        </aside>
+
+        <main class="main-content-card">
+            <h1 class="page-heading">User Login</h1>
+            <p class="page-sub">Enter your credentials below to access your Book Master account.</p>
+
+            <div class="login-box">
+                <form action="index.html" method="post">
+                    <div class="field">
+                        <label for="username">User Name</label>
+                        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    </div>
+
+                    <div class="btn-row">
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                        <button type="reset" class="btn btn-reset">Reset</button>
+                    </div>
+                </form>
+
+                <div class="register-link" id="register">
+                    New user? <a href="#">Create an account</a>
+                </div>
+            </div>
+        </main>
+
+        <aside class="right-column">
+            
+            <div class="cart-box-card">
+                <div class="cart-box-title">&#128722; Your Cart</div>
+                <div class="cart-items-count">0 items</div>
+                <a href="index.html#cart" class="btn-view-cart">View Cart</a>
+            </div>
+
+            <div class="why-box-card">
+                <div class="why-box-title">Why Shop With Us?</div>
+                <div class="perk-items-col">
+                    <div class="perk-row">
+                        <span class="perk-ico">&#128666;</span>
+                        <div>
+                            <div class="perk-main-text">Free Shipping</div>
+                            <div class="perk-sub-text">on orders above &#8377;499</div>
+                        </div>
+                    </div>
+                    <div class="perk-row">
+                        <span class="perk-ico">&#128737;</span>
+                        <div>
+                            <div class="perk-main-text">Secure Payments</div>
+                            <div class="perk-sub-text">100% safe &amp; secure</div>
+                        </div>
+                    </div>
+                    <div class="perk-row">
+                        <span class="perk-ico">&#128214;</span>
+                        <div>
+                            <div class="perk-main-text">Wide Collection</div>
+                            <div class="perk-sub-text">Best books, best prices</div>
+                        </div>
+                    </div>
+                    <div class="perk-row">
+                        <span class="perk-ico">&#127911;</span>
+                        <div>
+                            <div class="perk-main-text">24/7 Support</div>
+                            <div class="perk-sub-text">We're here to help</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
     </div>
+
+    <footer class="footer">
+        <div>&copy; 2026 Book Master. All Rights Reserved.</div>
+        <div>
+            <a href="#" class="social-link-item">f</a>
+            <a href="#" class="social-link-item">ig</a>
+            <a href="#" class="social-link-item">tw</a>
+            <a href="#" class="social-link-item">in</a>
+        </div>
+    </footer>
+
 </body>
 </html>

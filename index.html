@@ -1,284 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Book Master — your ultimate destination for fantasy books. Browse epic sagas, enchanting tales, and magical worlds.">
-    <title>Book Master | Online Bookstore</title>
+    <title>Book Master</title>
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
+
         body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f0f2f5;
-            color: #1a1d23;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            background-color: #FFFFE3;
+            color: #1e293b;
         }
-        .wrap {
-            max-width: 1150px;
-            margin: 28px auto;
-            background: #ffffff;
-            border: 1px solid #dde1e8;
-            box-shadow: 0 4px 24px rgba(30, 35, 48, 0.08);
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        .top {
-            display: grid;
-            grid-template-columns: 140px 1fr;
-            background: #1e2330;
-            color: #f0f2f5;
-            min-height: 90px;
-            align-items: center;
-            border-bottom: 3px solid #b8963e;
-        }
-        .logo {
-            font-weight: 800;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 3px;
-            line-height: 1.4;
-            color: #b8963e;
-            border-right: 1px solid rgba(184, 150, 62, 0.3);
-            padding: 10px;
-        }
-        .brand {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: #f0f2f5;
-        }
-        .brand span {
-            display: block;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: #b8963e;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-        .nav {
+
+        .header {
+            background-color: #1f3d34;
+            color: #FFFFE3;
+            padding: 16px 40px;
             display: flex;
-            background: #f7f8fa;
-            border-bottom: 1px solid #dde1e8;
+            justify-content: space-between;
+            align-items: center;
         }
-        .nav a {
-            flex: 1;
-            text-align: center;
-            padding: 12px 8px;
-            text-decoration: none;
-            color: #3a3f4d;
-            font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.6px;
-            text-transform: uppercase;
-            border-right: 1px solid #dde1e8;
-            transition: background 0.2s ease, color 0.2s ease;
+
+        .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
         }
-        .nav a:last-child {
-            border-right: none;
+
+        .brand-icon {
+            font-size: 34px;
         }
-        .nav a:hover {
-            background: #eaecf0;
-            color: #b8963e;
-        }
-        .body {
-            display: grid;
-            grid-template-columns: 180px 1fr;
-            min-height: 480px;
-        }
-        .side {
-            padding: 20px 14px;
-            background: #f4f5f7;
-            border-right: 1px solid #dde1e8;
-        }
-        .side h4 {
-            margin: 0 0 12px;
-            font-size: 10px;
-            letter-spacing: 1.8px;
-            text-transform: uppercase;
-            color: #8a919e;
+
+        .brand-name {
+            font-size: 28px;
             font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 1;
         }
-        .side a {
-            display: block;
-            padding: 9px 10px;
-            text-decoration: none;
-            color: #3a3f4d;
-            border-radius: 6px;
-            font-size: 13px;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-        .side a:hover {
-            background: #eaecf0;
-            color: #b8963e;
-        }
-        .content {
-            padding: 32px 36px;
-            background: #ffffff;
-        }
-        .content h1 {
-            margin: 0 0 6px;
-            font-size: 24px;
-            color: #1e2330;
-        }
-        .content h2 {
-            margin: 0 0 10px;
-            font-size: 17px;
-            color: #1e2330;
-        }
-        .content h3 {
-            margin: 0 0 10px;
-            font-size: 15px;
-            color: #1e2330;
-        }
-        .muted {
-            color: #5c6370;
-            font-size: 14px;
-            line-height: 1.75;
-            margin: 0 0 24px;
-        }
-        .cards {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 16px;
+
+        .brand-tagline {
+            font-size: 11px;
+            font-style: italic;
+            color: #d8d8d8;
             margin-top: 4px;
+            letter-spacing: 0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-        .card {
-            border: 1px solid #dde1e8;
-            border-radius: 8px;
-            padding: 20px;
-            background: #f7f8fa;
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-        .card p {
+
+        .nav-item {
             font-size: 13px;
-            line-height: 1.75;
-            color: #5c6370;
-            margin: 0 0 16px;
+            font-weight: 600;
+            color: #FFFFE3;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
         }
-        .card ul {
-            padding-left: 18px;
-            margin: 0;
+
+        .nav-item:hover,
+        .nav-item.active {
+            border-bottom-color: #FFFFE3;
+        }
+
+        .page-container {
+            max-width: 1260px;
+            margin: 24px auto;
+            padding: 0 16px;
+            display: grid;
+            grid-template-columns: 200px 1fr 230px;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .sidebar-panel {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 16px 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .sidebar-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1f3d34;
+            padding-left: 8px;
+            font-family: Georgia, serif;
+        }
+
+        .branch-nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .branch-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 12px;
             font-size: 13px;
-            line-height: 2.1;
-            color: #3a3f4d;
+            font-weight: 600;
+            color: #475569;
+            border-radius: 4px;
         }
-        .btn {
+
+        .branch-link-btn:hover,
+        .branch-link-btn.active {
+            background-color: #dbe6db;
+            color: #1f3d34;
+        }
+
+        .quote-container {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 16px;
+            text-align: center;
+        }
+
+        .quote-icon {
+            font-size: 26px;
+            color: #1f3d34;
+            margin-bottom: 6px;
+        }
+
+        .quote-body {
+            font-size: 13px;
+            font-style: italic;
+            color: #475569;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            font-family: Georgia, serif;
+        }
+
+        .quote-cite {
+            font-size: 11px;
+            color: #6D8196;
+            font-weight: 600;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-card {
+            background: linear-gradient(rgba(31, 61, 52, 0.75), rgba(31, 61, 52, 0.75)), url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            border-radius: 6px;
+            padding: 38px 32px;
+            color: #FFFFE3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #c0c0c0;
+            box-shadow: 0 4px 10px rgba(31, 61, 52, 0.15);
+        }
+
+        .hero-tag {
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #d8d8d8;
+            margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .hero-title {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero-text {
+            font-size: 14px;
+            font-style: italic;
+            color: #FFFFE3;
+            margin-bottom: 22px;
+            opacity: 0.95;
+        }
+
+        .hero-action-btn {
             display: inline-block;
-            background: #b8963e;
+            background-color: #b8cca6;
+            color: #1f3d34;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .hero-action-btn:hover {
+            background-color: #c9dbb9;
+        }
+
+        .hero-book-stack {
+            font-size: 68px;
+            opacity: 0.9;
+        }
+
+        .featured-card {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .featured-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 8px;
+        }
+
+        .featured-heading-text {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1f3d34;
+        }
+
+        .featured-all-link {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1f3d34;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .featured-all-link:hover {
+            text-decoration: underline;
+        }
+
+        .books-row-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .book-product-box {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .book-product-box:hover {
+            border-color: #a8a8a8;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        .book-img-frame {
+            height: 185px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .book-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .book-item-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 2px;
+            font-family: Georgia, serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .book-item-author {
+            font-size: 11px;
+            color: #6D8196;
+            margin-bottom: 8px;
+        }
+
+        .book-item-price {
+            font-size: 14px;
+            font-weight: 800;
+            color: #1f3d34;
+            margin-bottom: 10px;
+        }
+
+        .add-cart-btn {
+            background-color: #1f3d34;
             color: #ffffff;
             border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 13px;
-            cursor: pointer;
-            text-decoration: none;
-            letter-spacing: 0.4px;
-            transition: background 0.2s ease;
-        }
-        .btn:hover {
-            background: #9a7c30;
-        }
-        .footer {
-            text-align: center;
-            padding: 14px;
-            border-top: 1px solid #dde1e8;
-            color: #8a919e;
+            padding: 8px;
             font-size: 12px;
-            background: #f4f5f7;
-            letter-spacing: 0.3px;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
         }
-        @media (max-width: 700px) {
-            .wrap {
-                margin: 0;
-                border: none;
-            }
-            .top {
-                grid-template-columns: 90px 1fr;
-            }
-            .brand {
-                font-size: 20px;
-            }
-            .nav {
-                flex-wrap: wrap;
-            }
-            .nav a {
-                min-width: 33%;
-                border-bottom: 1px solid #dde1e8;
-            }
-            .body {
+
+        .add-cart-btn:hover {
+            background-color: #2b5447;
+        }
+
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .cart-box-card {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .cart-box-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: Georgia, serif;
+        }
+
+        .cart-items-count {
+            font-size: 13px;
+            color: #6D8196;
+            margin-bottom: 14px;
+        }
+
+        .btn-view-cart {
+            display: block;
+            background-color: #1f3d34;
+            color: #ffffff;
+            text-align: center;
+            padding: 9px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+
+        .btn-view-cart:hover {
+            background-color: #2b5447;
+        }
+
+        .why-box-card {
+            background: #ffffff;
+            border: 1px solid #d8d8d8;
+            border-radius: 6px;
+            padding: 18px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .why-box-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 16px;
+            font-family: Georgia, serif;
+        }
+
+        .perk-items-col {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .perk-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .perk-ico {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .perk-main-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1f3d34;
+            margin-bottom: 2px;
+        }
+
+        .perk-sub-text {
+            font-size: 11px;
+            color: #6D8196;
+            line-height: 1.3;
+        }
+
+        .footer {
+            background-color: #1f3d34;
+            color: #d8d8d8;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            margin-top: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .social-link-item {
+            color: #d8d8d8;
+            margin-left: 14px;
+            font-weight: 700;
+        }
+
+        .social-link-item:hover {
+            color: #FFFFE3;
+        }
+
+        @media (max-width: 1024px) {
+            .page-container {
                 grid-template-columns: 1fr;
             }
-            .side {
-                display: flex;
+
+            .books-row-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header {
+                flex-direction: column;
+                gap: 12px;
+                padding: 14px;
+            }
+
+            .nav-links {
                 flex-wrap: wrap;
-                gap: 4px;
-                border-right: none;
-                border-bottom: 1px solid #dde1e8;
-                padding: 12px;
+                gap: 12px;
+                justify-content: center;
             }
-            .side h4 {
-                width: 100%;
-            }
-            .content {
-                padding: 20px 16px;
-            }
-            .cards {
+
+            .books-row-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="wrap">
-        <header class="top">
-            <div class="logo">BOOK<br>MASTER</div>
-            <div class="brand">
-                Book Master
-                <span>Online Bookstore</span>
+
+    <header class="header">
+        <div class="brand-wrap">
+            <span class="brand-icon">📖</span>
+            <div>
+                <div class="brand-name">Book Master</div>
+                <div class="brand-tagline">Read More . Explore More . Grow More</div>
             </div>
-        </header>
-        <nav class="nav" aria-label="Main navigation">
-            <a href="#">Home</a>
-            <a href="#">Login</a>
-            <a href="#">Registration</a>
-            <a href="#">Catalogue</a>
-            <a href="#">Cart</a>
+        </div>
+
+        <nav class="nav-links">
+            <a href="index.html" class="nav-item active">🏠 Home</a>
+            <a href="login.html" class="nav-item">👤 Login</a>
+            <a href="login.html#register" class="nav-item">📝 Registration</a>
+            <a href="#catalogue" class="nav-item">📖 Catalogue</a>
+            <a href="#cart" class="nav-item">🛒 Cart (0)</a>
         </nav>
-        <div class="body">
-            <aside class="side">
-                <h4>Quick Links</h4>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Best Fantasy Books</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Top 100 Fantasy</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Recommendations</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Series</a>
-                <a href="https://www.goodreads.com/list/show/50.The_Best_Fantasy_Books_of_All_Time">Book Reviews</a>
-            </aside>
-            <section class="content">
-                <h1>Welcome to Book Master</h1>
-                <p class="muted">Book Master is your ultimate destination for all things fantasy! Explore our extensive collection of fantasy books, from epic sagas to enchanting tales. Immerse yourself in magical worlds, meet unforgettable characters, and embark on thrilling adventures. Whether you're a seasoned fantasy enthusiast or just starting your journey, Book Master has something for everyone.</p>
-                <div class="cards">
-                    <div class="card">
-                        <h2>Books: A Door to Another World</h2>
-                        <p>Discover new releases, timeless classics, and hidden gems that will transport you to realms beyond imagination. Join our community of passionate readers and let your imagination soar!</p>
-                        <a href="#" class="btn">Browse Catalogue</a>
+    </header>
+
+    <div class="page-container">
+
+        <aside class="sidebar-panel">
+            <div class="sidebar-title">Various Branches</div>
+            <ul class="branch-nav-list">
+                <li><a href="index.html" class="branch-link-btn active"><span>🏠</span> Home</a></li>
+                <li><a href="#cse" class="branch-link-btn"><span>💻</span> Computer Science</a></li>
+                <li><a href="#ece" class="branch-link-btn"><span>📡</span> Electronics &amp; Comm</a></li>
+                <li><a href="#eee" class="branch-link-btn"><span>⚡</span> Electrical Engg</a></li>
+                <li><a href="#me" class="branch-link-btn"><span>⚙️</span> Mechanical Engg</a></li>
+                <li><a href="#civil" class="branch-link-btn"><span>🏗️</span> Civil Engineering</a></li>
+                <li><a href="#academic" class="branch-link-btn"><span>🎓</span> Academic &amp; Syllabi</a></li>
+            </ul>
+
+            <div class="quote-container">
+                <div class="quote-icon">📖</div>
+                <p class="quote-body">“A book is a dream that you hold in your hands.”</p>
+                <span class="quote-cite">— Neil Gaiman</span>
+            </div>
+        </aside>
+
+        <main class="center-column" id="catalogue">
+
+            <section class="hero-card">
+                <div>
+                    <div class="hero-tag">WELCOME TO</div>
+                    <h1 class="hero-title">Book Master</h1>
+                    <p class="hero-text">Your One-Stop Destination for All Kinds of Books</p>
+                    <a href="#featured" class="hero-action-btn">Explore Now &rarr;</a>
+                </div>
+                <div class="hero-book-stack">📚</div>
+            </section>
+
+            <section class="featured-card" id="featured">
+                <div class="featured-top-row">
+                    <h2 class="featured-heading-text">Featured Books</h2>
+                    <a href="#featured" class="featured-all-link">View All &rarr;</a>
+                </div>
+
+                <div class="books-row-grid">
+
+                    <div class="book-product-box">
+                        <div>
+                            <div class="book-img-frame">
+                                <img src="https://covers.openlibrary.org/b/isbn/9780735211292-M.jpg"
+                                    alt="Atomic Habits by James Clear">
+                            </div>
+                            <div class="book-item-title">Atomic Habits</div>
+                            <div class="book-item-author">James Clear</div>
+                            <div class="book-item-price">&#8377; 399</div>
+                        </div>
+                        <button type="button" class="add-cart-btn">&#128722; Add to Cart</button>
                     </div>
-                    <div class="card">
-                        <h3>Categories</h3>
-                        <ul>
-                            <li>Best Fantasy Books of All Time</li>
-                            <li>Top 100 Fantasy Books</li>
-                            <li>Fantasy Book Series</li>
-                            <li>Fantasy Book Reviews</li>
-                        </ul>
+
+                    <div class="book-product-box">
+                        <div>
+                            <div class="book-img-frame">
+                                <img src="https://covers.openlibrary.org/b/isbn/9780857197689-M.jpg"
+                                    alt="The Psychology of Money by Morgan Housel">
+                            </div>
+                            <div class="book-item-title">The Psychology of Money</div>
+                            <div class="book-item-author">Morgan Housel</div>
+                            <div class="book-item-price">&#8377; 349</div>
+                        </div>
+                        <button type="button" class="add-cart-btn">&#128722; Add to Cart</button>
                     </div>
+
+                    <div class="book-product-box">
+                        <div>
+                            <div class="book-img-frame">
+                                <img src="https://covers.openlibrary.org/b/isbn/9781501110368-M.jpg"
+                                    alt="It Ends With Us by Colleen Hoover">
+                            </div>
+                            <div class="book-item-title">It Ends With Us</div>
+                            <div class="book-item-author">Colleen Hoover</div>
+                            <div class="book-item-price">&#8377; 299</div>
+                        </div>
+                        <button type="button" class="add-cart-btn">&#128722; Add to Cart</button>
+                    </div>
+
+                    <div class="book-product-box">
+                        <div>
+                            <div class="book-img-frame">
+                                <img src="https://covers.openlibrary.org/b/isbn/9780525559474-M.jpg"
+                                    alt="The Midnight Library by Matt Haig">
+                            </div>
+                            <div class="book-item-title">The Midnight Library</div>
+                            <div class="book-item-author">Matt Haig</div>
+                            <div class="book-item-price">&#8377; 349</div>
+                        </div>
+                        <button type="button" class="add-cart-btn">&#128722; Add to Cart</button>
+                    </div>
+
                 </div>
             </section>
-        </div>
-        <footer class="footer">
-            &copy; 2026 Book Master &mdash; Academic demonstration for Web Designing Workshop (BCS353)
-        </footer>
+
+        </main>
+
+        <aside class="right-column" id="cart">
+
+            <div class="cart-box-card">
+                <div class="cart-box-title">&#128722; Your Cart</div>
+                <div class="cart-items-count">0 items</div>
+                <a href="#cart" class="btn-view-cart">View Cart</a>
+            </div>
+
+            <div class="why-box-card">
+                <div class="why-box-title">Why Shop With Us?</div>
+                <div class="perk-items-col">
+                    <div class="perk-row">
+                        <span class="perk-ico">&#128666;</span>
+                        <div>
+                            <div class="perk-main-text">Free Shipping</div>
+                            <div class="perk-sub-text">on orders above &#8377;499</div>
+                        </div>
+                    </div>
+                    <div class="perk-row">
+                        <span class="perk-ico">&#128737;</span>
+                        <div>
+                            <div class="perk-main-text">Secure Payments</div>
+                            <div class="perk-sub-text">100% safe &amp; secure</div>
+                        </div>
+                    </div>
+                    <div class="perk-row">
+                        <span class="perk-ico">&#128214;</span>
+                        <div>
+                            <div class="perk-main-text">Wide Collection</div>
+                            <div class="perk-sub-text">Best books, best prices</div>
+                        </div>
+                    </div>
+                    <div class="perk-row">
+                        <span class="perk-ico">&#127911;</span>
+                        <div>
+                            <div class="perk-main-text">24/7 Support</div>
+                            <div class="perk-sub-text">We're here to help</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
     </div>
+
+    <footer class="footer">
+        <div>&copy; 2026 Book Master. All Rights Reserved.</div>
+        <div>
+            <a href="#" class="social-link-item">f</a>
+            <a href="#" class="social-link-item">ig</a>
+            <a href="#" class="social-link-item">tw</a>
+            <a href="#" class="social-link-item">in</a>
+        </div>
+    </footer>
+
 </body>
+
 </html>
+`
